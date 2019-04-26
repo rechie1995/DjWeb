@@ -1,0 +1,4 @@
+# created by rechie
+/.vscode/*
+/venv/*
+/**/__pycache__/*
