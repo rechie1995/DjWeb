@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
   登陆页面
+  <form action="" methond="post">
+    {{ csrf_token }}
+    {{ form }}
+  </form>
 {% endblock content %}

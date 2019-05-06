@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
+
 class LogoutView(TemplateView):
 
     template_name = "admin/logout.html"
