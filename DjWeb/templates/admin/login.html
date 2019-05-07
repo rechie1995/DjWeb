@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
 {% block content %}
   登陆页面
-  <form action="" methond="post">
-    {{ csrf_token }}
-    {{ form }}
-  </form>
+  {{ render_form(form, csrf_token) }}
 {% endblock content %}

@@ -1,29 +1,7 @@
-{% macro render_field(field) %}
-<div class="form-group">
-  <label for="{{ field.name }}">{{ field.label }}</label>
-  <input type="{{ field.type }}" class="form-control" id="{{ field.name }}" placeholder="{{ field.placeholder }}"/>
-</div>
-{% endmacro %}
-
-{% macro render_form_row
-  (
-    form, 
-    action="", 
-    enctype=None,
-    method="post", 
-    extra_class=None,
-    form_type="basic", 
-    horizontal_columns=('lg', 2, 10),  
-    button_map={}, 
-    id="", 
-    novalidate=False, 
-    render_kw={},
-  ) 
-%}
-<form id="{{ id }}" class="" action="{{ action }}" method="{{ method }}" enctype="{{ enctype }}" >
-{% for field in form %}
-{{ render_field(field) }}
-{% endfor %}
+{% macro render_form(form, csrf_token, action="", enctype=None, method="post", extra_class=None, id="")%}
+<form id="{{ id }}" class="  {{ extra_class }}" action="{{ action }}" method="{{ method }}" enctype="{{ enctype }}" >
+  <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+  {{ form }}
 </form>
 {% endmacro %}
 
